@@ -1,7 +1,7 @@
 <!--  -->
 <template>
   <div class="music">
-    <div class="back">
+    <div class="back" @click="back">
       <img src="../../common/image/left.png" alt />
     </div>
     <div class="title">抖音热门|希望你后来遇到他</div>
@@ -26,7 +26,13 @@ export default {
   //生命周期 - 创建完成（访问当前this实例）
   created() {},
   //生命周期 - 挂载完成（访问DOM元素）
-  mounted() {}
+  mounted() {},
+  methods:{
+    back(){
+      this.$store.commit('isShow')
+      this.$router.push('/recommend')
+    }
+  }
 };
 </script>
 <style scoped>

@@ -1,12 +1,12 @@
 <!--  -->
 <template>
   <div class="recommend">
-    <router-view v-if="show"></router-view>
-    <div class="scontainer" v-if="!show">
+    <router-view v-if="$store.state.show"></router-view>
+    <div class="scontainer" v-if="!$store.state.show">
       <Swiper :imgarr="recommends" />
     </div>
-    <div class="title" v-if="!show">热门歌单介绍</div>
-    <div class="sroll" v-if="!show">
+    <div class="title" v-if="!$store.state.show">热门歌单介绍</div>
+    <div class="sroll" v-if="!$store.state.show">
       <div class="songdesc" v-for="(v,i) in 12" :key="i" @click="skip(i)">
         <div class="left">
           <img
@@ -30,8 +30,7 @@ export default {
   data() {
     return {
       recommends: [],
-      discList: [],
-      show:false
+      discList: []
     };
   },
   components: {
@@ -39,7 +38,6 @@ export default {
   },
   //生命周期 - 创建完成（访问当前this实例）
   created() {
-    this.show=false;
     this.recommends = [
       "http://y.gtimg.cn/music/common/upload/MUSIC_FOCUS/2482639.jpg",
       "http://y.gtimg.cn/music/common/upload/MUSIC_FOCUS/2482926.jpg",
@@ -52,7 +50,7 @@ export default {
   mounted() {},
   methods: {
     skip(i){
-      this.show=true
+      this.$store.commit("isShow");
      this.$router.push({
           path: `/recommend/${i}`,
         })
