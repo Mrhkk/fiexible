@@ -32,6 +32,7 @@ body {
   width: 750px;
   height: 100%;
   background-color: #fff;
+  position: relative;
 }
 .van-swipe__indicator{
 width: 20px;
