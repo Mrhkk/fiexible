@@ -3,6 +3,7 @@
 import Vue from 'vue'
 import store from './store/store'
 import router from './router'
+import $ from 'jquery'
 // 引入适配
 import './flexible/flexible'
 import { Swipe, SwipeItem, Lazyload } from 'vant'
