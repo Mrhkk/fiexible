@@ -1,5 +1,6 @@
 const state = {
     count: 0,
-    show: false
+    show: false,
+    keyShow: false
 }
 export default state

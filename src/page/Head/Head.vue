@@ -2,7 +2,7 @@
 <template>
   <div class="head">
     <div class="span"><div class="icon"></div>Vue Music</div>
-    <div class="mine">登录</div>
+    <div class="mine" @click="cartoon">登录</div>
   </div>
 </template>
 
@@ -14,7 +14,15 @@ export default {
   //生命周期 - 创建完成（访问当前this实例）
   created() {},
   //生命周期 - 挂载完成（访问DOM元素）
-  mounted() {}
+  mounted() {},
+  methods:{
+    cartoon(){
+      this.$store.commit('changeKey')
+      console.log(this.$store.state.keyShow)
+       this.$router.push('/key')
+    }
+   
+  }
 };
 </script>
 <style scoped>
